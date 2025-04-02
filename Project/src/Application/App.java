@@ -24,10 +24,11 @@ public class App extends JFrame{
     private void init()
     {
         setTitle("Smart Metro Login");
-        setSize(new Dimension(1200,700));
+        setSize(new Dimension(1600,900)); // Tỉ lệ khung hình app
         setLocationRelativeTo(null);
         FormManager.getInstance().initApplication(this);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Notifications.getInstance().setJFrame(this);
     }
 
 

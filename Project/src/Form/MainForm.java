@@ -16,6 +16,7 @@ import javax.swing.JButton;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import raven.toast.Notifications;
 
 
 import Form.FormManager;
@@ -77,6 +78,7 @@ public class MainForm extends JLayeredPane{
                 action.cancel();
             }
         } else if (index == 9) {
+            Notifications.getInstance().show(Notifications.Type.SUCCESS, "Đăng xuất thành công!");
             formManager.logout();
         } else {
             action.cancel();

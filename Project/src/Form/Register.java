@@ -15,7 +15,7 @@ public class Register extends JPanel {
 
     private void init() {
         setLayout(new MigLayout("fill,insets 20", "[center]", "[center]"));
-        txtFirstName = new JTextField();
+        txtName = new JTextField();
         txtBirth = new JTextField();
         txtUsername = new JTextField();
         txtPassword = new JPasswordField();
@@ -29,7 +29,7 @@ public class Register extends JPanel {
                 Notifications.getInstance().show(Notifications.Type.ERROR, "Mật khẩu không khớp. Vui lòng thử lại!");
             }
         });
-//        passwordStrengthStatus = new PasswordStrengthStatus();
+
 
         JPanel panel = new JPanel(new MigLayout("wrap,fillx,insets 35 45 30 45", "[fill,360]"));
         panel.putClientProperty(FlatClientProperties.STYLE, "" +
@@ -37,7 +37,7 @@ public class Register extends JPanel {
                 "[light]background:darken(@background,3%);" +
                 "[dark]background:lighten(@background,3%)");
 
-        txtFirstName.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Họ và tên");
+        txtName.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Họ và tên");
         txtBirth.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Ngày sinh");
         txtUsername.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Nhập tên đăng nhập");
         txtPassword.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Nhập mật khẩu");
@@ -67,12 +67,15 @@ public class Register extends JPanel {
         panel.add(lbTitle);
         panel.add(description);
         panel.add(new JLabel("Thông tin người dùng"), "gapy 10");
-        panel.add(txtFirstName, "split 2");
+        panel.add(txtName, "split 2");
         panel.add(txtBirth);
         txtPhone = new JTextField();
         txtPhone.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Nhập số điện thoại");
-        panel.add(new JLabel("Số điện thoại"), "gapy 8");
-        panel.add(txtPhone);
+        txtGmail = new JTextField();
+        txtGmail.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Nhập Email của bạn");
+        panel.add(new JLabel("Thông tin liên lạc"),"gapy 10");
+        panel.add(txtPhone, "split 2");
+        panel.add(txtGmail);
         panel.add(new JLabel("Giới tính"), "gapy 8");
         panel.add(CreateGenderPanel());
         panel.add(new JSeparator(), "gapy 5 5");
@@ -130,11 +133,12 @@ public class Register extends JPanel {
         return password.equals(confirmPassword);
     }
 
-    private JTextField txtFirstName;
+    private JTextField txtName;
     private JTextField txtBirth;
     private JRadioButton jrMale;
     private JRadioButton jrFemale;
     private JTextField txtUsername;
+    private JTextField txtGmail;
     private JPasswordField txtPassword;
     private JPasswordField txtConfirmPassword;
     private ButtonGroup groupGender;
